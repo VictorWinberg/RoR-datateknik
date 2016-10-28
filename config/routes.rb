@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions' }
 
-  # devise_scope :user do
-  #   delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-  # end
+  devise_scope :user do
+    get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
 
   # Root of your site with "root"
   root to: 'pages#home'
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   # Resource routes (maps HTTP verbs to controller actions automatically):
   resources :users
+  resources :identities
 
   # Resource routes with options:
   #   resources :products do

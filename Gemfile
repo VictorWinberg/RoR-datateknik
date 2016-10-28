@@ -41,6 +41,8 @@ gem 'puma'
 gem 'devise', '4.2.0'
 # OmniAuth is a flexible authentication system utilizing Rack middleware
 gem 'omniauth-google-oauth2'
+# A simple login and password strategy for OmniAuth
+gem 'omniauth-identity'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

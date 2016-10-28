@@ -1,10 +1,25 @@
-<div class="container">
-  <% if user_signed_in?  %>
-    <p>Welcome back, <a href="mailto:<%= current_user.email %>"><%= current_user.name %></a>!</p>
-  <% else  %>
-    <p><%= link_to 'Sign in.', user_google_oauth2_omniauth_authorize_path %></p>
-  <% end %>
-</div>
-
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<% if user_signed_in?  %>
+<p>Welcome back, <a href="mailto:<%= current_user.email %>"><%= current_user.name %></a>!</p><br>
+<%= link_to 'Sign out.', destroy_user_session_path %>
+<% else  %>
+<p><%= link_to 'Sign in with google.', user_google_oauth2_omniauth_authorize_path %></p>
+<p>
+  <b>Don't use google services?</b><br>
+  <%= link_to "Create an account", new_identity_path %> or login below.
+</p>
+
+<%= form_tag "/users/auth/identity/callback" do %>
+<div class="field">
+  <%= label_tag :auth_key, "Email" %><br>
+  <%= text_field_tag :auth_key %>
+</div>
+<div class="field">
+  <%= label_tag :password %><br>
+  <%= password_field_tag :password %>
+</div>
+<div class="actions"><%= submit_tag "Login" %></div>
+<% end %>
+<% end %>
