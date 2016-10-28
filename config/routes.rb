@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Resource routes (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resources :users
 
   # Resource routes with options:
   #   resources :products do
