@@ -4,5 +4,10 @@ default: &default
   encoding: unicode
   pool: 5
 
+development:
+  <<: *default
+  database: dsek_dev
+  host: localhost
+
 production:
    url: <%= ENV['DATABASE_URL'] %>
