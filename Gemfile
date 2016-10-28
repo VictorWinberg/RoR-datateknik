@@ -39,13 +39,17 @@ gem 'puma'
 
 # Flexible authentication solution for Rails with Warden
 gem 'devise'
+# OmniAuth is a flexible authentication system utilizing Rack middleware
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   # Better Errors replaces the standard Rails error page with a much better and more useful error page
   gem "better_errors"
+
+  # Loads environment variables from `.env`.
+  gem 'dotenv-rails'
 end
 
 group :development do
