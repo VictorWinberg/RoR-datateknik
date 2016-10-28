@@ -1,6 +1,11 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
+<p>
+  Go to <%= link_to 'secure site.', pages_secure_path %><br>
+  Check out <%= link_to 'users.', users_path %>
+</p>
+
 <% if user_signed_in?  %>
 <p>Welcome back, <a href="mailto:<%= current_user.email %>"><%= current_user.name %></a>!</p><br>
 <%= link_to 'Sign out.', destroy_user_session_path %>

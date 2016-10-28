@@ -1,2 +1,9 @@
 <h1>Pages#secure</h1>
 <p>Find me in app/views/pages/secure.html.erb</p>
+<% if user_signed_in? %>
+<% if current_user.provider == 'google_oauth2' %>
+<p>What you see with a google account</p>
+<% else %>
+<p>What you see without a google account</p>
+<% end %>
+<% end %>
