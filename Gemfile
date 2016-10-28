@@ -38,7 +38,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
 
 # Flexible authentication solution for Rails with Warden
-gem 'devise'
+gem 'devise', '4.2.0'
 # OmniAuth is a flexible authentication system utilizing Rack middleware
 gem 'omniauth-google-oauth2'
 

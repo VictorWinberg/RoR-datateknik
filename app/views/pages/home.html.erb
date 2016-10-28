@@ -1,2 +1,10 @@
+<div class="container">
+  <% if user_signed_in?  %>
+    <p>Welcome back, <a href="mailto:<%= current_user.email %>"><%= current_user.name %></a>!</p>
+  <% else  %>
+    <p><%= link_to 'Sign in.', user_google_oauth2_omniauth_authorize_path %></p>
+  <% end %>
+</div>
+
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>

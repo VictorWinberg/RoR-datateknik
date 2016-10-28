@@ -197,7 +197,7 @@ DEPENDENCIES
   better_errors
   byebug
   coffee-rails (~> 4.1.0)
-  devise
+  devise (= 4.2.0)
   dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
