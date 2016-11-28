@@ -11,6 +11,8 @@
 <%= link_to 'Sign out.', destroy_user_session_path %>
 <% else  %>
 <p><%= link_to 'Sign in with google.', user_google_oauth2_omniauth_authorize_path %></p>
+<p><%= link_to 'Sign in with CAS.', user_cas_omniauth_authorize_path %></p>
+<p><%= link_to 'Sign in with CAS3.', user_cas3_omniauth_authorize_path %></p>
 <p>
   <b>Don't use google services?</b><br>
   <%= link_to "Create an account", new_identity_path %> or login below.

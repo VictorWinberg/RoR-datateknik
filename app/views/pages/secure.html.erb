@@ -3,6 +3,8 @@
 <% if user_signed_in? %>
 <% if current_user.provider == 'google_oauth2' %>
 <p>What you see with a google account</p>
+<% elsif current_user.provider == 'cas' || current_user.provider == 'cas3' %>
+<p>What you see with a cas account</p>
 <% else %>
 <p>What you see without a google account</p>
 <% end %>

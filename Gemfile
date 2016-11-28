@@ -12,7 +12,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+# gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -34,13 +34,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# A ruby web server built for concurrency
-gem 'puma'
-
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '4.2.0'
 # OmniAuth is a flexible authentication system utilizing Rack middleware
 gem 'omniauth-google-oauth2'
+# A CAS OmniAuth Strategy
+gem 'omniauth-cas'
+gem 'omniauth-cas3'
 # A simple login and password strategy for OmniAuth
 gem 'omniauth-identity'
 
@@ -65,4 +65,6 @@ end
 group :production do
   # Makes running your Rails app easier
   gem 'rails_12factor'
+  # A ruby web server built for concurrency
+  gem 'puma'
 end
