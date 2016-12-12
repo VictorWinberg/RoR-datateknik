@@ -6,7 +6,7 @@ ruby '2.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgres as the database for Active Record
-gem 'pg'
+gem 'pg', '0.19.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,10 +39,10 @@ gem 'devise', '4.2.0'
 # OmniAuth is a flexible authentication system utilizing Rack middleware
 gem 'omniauth-google-oauth2'
 # A CAS OmniAuth Strategy
-gem 'omniauth-cas'
+# gem 'omniauth-cas'
 gem 'omniauth-cas3'
 # A simple login and password strategy for OmniAuth
-gem 'omniauth-identity'
+# gem 'omniauth-identity' # replaced by devise
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

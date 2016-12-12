@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '459400622dc1434bf3aa815c547654cc5e0b81e20a34a937fcbd89991ee796aa274b3cb0846b195440cf4de76d278f94ee80355e32c334d12ecd732f43439462'
+  # config.secret_key = 'fa5ebc1701ac4fb08ee28e4514a09f8b508a30943a21764779c428ea108842df2d729afb976a494b6e3fb13f51ad03732608808b5e4cd2c1e27faada28efb422'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -108,7 +108,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '616fb20cd9a139ee7ec4ba5d811219e120b35f1e37f71310b02de27066ac7adb17e3a763b29403ffa7f9bfea51da5fd62df71a7eae66963ba64dda604d156b21'
+  # config.pepper = 'da6784a03ea6d0a47eabb945623ce6164e6f311117df1258b01ca8d638acf1eae83d9fe094c87b10d52a5d3e3c90645800b76f0758307faedd5f29c4fc546abc'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false
@@ -133,7 +133,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
@@ -248,6 +248,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
+  config.omniauth :cas3, host: 'cas.lu.se', service_validate_url: '/cas/serviceValidate'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

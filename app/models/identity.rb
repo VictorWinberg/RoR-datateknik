@@ -1,5 +1,10 @@
-class Identity < OmniAuth::Identity::Models::ActiveRecord
-  validates_presence_of :name
-  validates_uniqueness_of :email
-  validates_format_of :email, :with => /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+class Identity < ActiveRecord::Base
+  belongs_to :user
+
+  validates_presence_of :uid, :provider
+  validates_uniqueness_of :uid, :scope => :provider
+
+  def self.find_for_oauth(auth)
+    find_or_create_by(uid: auth.uid, provider: auth.provider)
+  end
 end

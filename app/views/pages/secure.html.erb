@@ -6,7 +6,7 @@
 <% elsif current_user.provider == 'cas' || current_user.provider == 'cas3' %>
 <p>What you see with a cas account</p>
 <% else %>
-<p>What you see without a google account</p>
+<p>What you see with a created account</p>
 <% end %>
 <%= current_user.inspect %>
 <% end %>
