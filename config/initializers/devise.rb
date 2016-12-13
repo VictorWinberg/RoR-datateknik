@@ -249,6 +249,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
+  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"],
+                   scope: 'public_profile,user_friends,email'
   config.omniauth :cas3, host: 'cas.lu.se', service_validate_url: '/cas/serviceValidate'
 
   # ==> Warden configuration

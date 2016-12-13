@@ -26,6 +26,11 @@ class User < ActiveRecord::Base
       email = auth.info.email
       user = User.where(:email => email).first if email
 
+      # Connect to facebook
+      if user.nil? && auth.provider == 'facebook'
+        connectWithFacebook(auth)
+      end
+
       # Create the user if it's a new registration
       if user.nil?
         user = User.new(
@@ -46,6 +51,13 @@ class User < ActiveRecord::Base
       identity.save!
     end
     user
+  end
+
+  # TODO: Use the friends feature
+  def self.connectWithFacebook(auth)
+    @graph = Koala::Facebook::API.new(auth.credentials.token, ENV["FACEBOOK_APP_SECRET"])
+    profile = @graph.get_object("me")
+    friends = @graph.get_connections("me", "friends")
   end
 
   def email_verified?
