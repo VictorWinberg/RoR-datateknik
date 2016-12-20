@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'pages/secure'
+  get 'courses/index'
 
-  resources :users
 end

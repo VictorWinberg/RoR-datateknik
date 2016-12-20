@@ -1,13 +1,16 @@
-<h1>Welcome to <%= request.host %></h1>
-<p>Please enjoy your stay.</p>
+<div class="center">
+  <h1>Welcome to <%= request.host %></h1>
+  <p>Please enjoy your stay.</p>
 
-<p>
-  Go to <%= link_to 'secure site.', pages_secure_path %><br>
-</p>
+  <p>
+    Go to <%= link_to 'courses.', courses_index_path %><br>
+    Go to <%= link_to 'secure site.', pages_secure_path %><br>
+  </p>
 
-<% if user_signed_in?  %>
-<p>Welcome back, <a href="mailto:<%= current_user.email %>"><%= current_user.name %></a>!</p><br>
-<%= link_to 'Sign out.', destroy_user_session_path, method: :delete %>
-<% else  %>
-<%= link_to 'Sign in.', new_user_session_path %>
-<% end %>
+  <% if user_signed_in?  %>
+  <p>Welcome back, <a href="mailto:<%= current_user.email %>"><%= current_user.name %></a>!</p><br>
+  <%= link_to 'Sign out.', destroy_user_session_path, method: :delete %>
+  <% else  %>
+  <%= link_to 'Sign in.', new_user_session_path %>
+  <% end %>
+</div>

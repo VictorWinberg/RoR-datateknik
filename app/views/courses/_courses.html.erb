@@ -1,0 +1,52 @@
+<% JSON.parse(@courses).each do |course| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span class="pull-right tooltip-with-newline">
+        <%= content_tag(:span, trim(course["credits"]).to_s + " hp", class: "badge") %>
+
+        <% if course["sp"].empty? %>
+          <%= content_tag(:span, "Periodiserad", class: ["label", "label-warning"]) %>
+        <% else %>
+          <% 4.times do |i| %>
+            <% if course["sp"].include? i + 1 %>
+              <% label = "label-primary" %>
+              <% tooltip = "" %>
+              <% course["sp_details"].select{ |x| x[(i+1).to_s] }.first[(i+1).to_s].each{ |key,value| tooltip += "#{key} #{value}\n" } %>
+            <% else %>
+              <% label = "label-default" %>
+            <% end %>
+            <%= content_tag(:span, i + 1, class: ["label", label], data: {toggle: "tooltip", title: tooltip}) %>
+          <% end %>
+        <% end %>
+      </span>
+
+      <%= content_tag(:h3, course["code"] + " - " + course["name"], class: "panel-title") %>
+    </div>
+    <div class="panel-body">
+      <% if course["cycle"] == "A" %>
+        <span class="label label-danger">Advancerad</span><br>
+      <% end %>
+
+      <% course["specializations"].each do |spec| %>
+        <%= content_tag(:span, spec["fullname"], class: ["label", "label-info"]) %>
+      <% end %>
+
+      <span class="pull-right">
+        <% btns = ["btn-primary", "btn-success", "btn-info", "btn-warning", "btn-danger"] %>
+        <% course["links"].each_with_index do |link, i| %>
+        <%= link_to(link["type"], link["url"], class: 'btn ' + btns[i] + ' btn-xs', data: {toggle: "tooltip", title: link["description"]})  %>
+        <% end %>
+      </span>
+
+      <br>
+
+      <% if course["sp"].empty? %>
+        <br><b>Periodiserad:</b> <i>Kursen ges inte aktuellt läsår, men är planerad att ges nästa läsår.</i>
+      <% end %>
+
+      <% if !course["footnote"].nil? %>
+        <br><i><%= course["footnote"] %></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>

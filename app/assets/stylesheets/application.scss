@@ -25,3 +25,8 @@
   top: 0; left: 0; bottom: 0; right: 0;
   text-align: center;
 }
+
+.tooltip-with-newline .tooltip-inner {
+    white-space: pre-wrap;
+    text-align: left;
+}
