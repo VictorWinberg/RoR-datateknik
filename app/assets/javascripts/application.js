@@ -13,8 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require_tree .
-$(function () {
+$(document).ready(function() {
   $('[data-toggle="tooltip"]').tooltip()
 })
