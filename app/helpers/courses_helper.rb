@@ -21,7 +21,7 @@ module CoursesHelper
 
   def parse(program, study_year, language)
 
-    url = "http://kurser.lth.se/lot/?lasar=" + study_year + "&sort1=lp&sort2=slut_lp&sort3=namn&prog=" + program + "&forenk=t&val=program&soek=t&lang=" +language;
+    url = "https://kurser.lth.se/lot/?lasar=" + study_year + "&sort1=lp&sort2=slut_lp&sort3=namn&prog=" + program + "&forenk=t&val=program&soek=t&lang=" +language;
 
     test = 'input.html' #will be removed later on...
     html_doc = Nokogiri::HTML(open(url))
